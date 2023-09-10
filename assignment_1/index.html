@@ -25,16 +25,17 @@
 <pre data-role="codeBlock" data-info="R" class="language-r R">library<span class="token punctuation">(</span>tidyverse<span class="token punctuation">)</span>
 
 ggplot<span class="token punctuation">(</span>data <span class="token operator">=</span> economics<span class="token punctuation">,</span> mapping <span class="token operator">=</span> aes<span class="token punctuation">(</span>x <span class="token operator">=</span> date<span class="token punctuation">,</span> y <span class="token operator">=</span> uempmed<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span>
-  geom_line<span class="token punctuation">(</span>color <span class="token operator">=</span> <span class="token string">"orange"</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token comment"># Set line color to orange</span>
+  geom_line<span class="token punctuation">(</span>color <span class="token operator">=</span> <span class="token string">"orange"</span><span class="token punctuation">)</span> <span class="token operator">+</span>  <span class="token comment"># Set line color to orange</span>
   labs<span class="token punctuation">(</span>
     x <span class="token operator">=</span> <span class="token string">"date"</span><span class="token punctuation">,</span>
-    y <span class="token operator">=</span> <span class="token string">"Median Duration of Unemployment (in weeks)"</span><span class="token punctuation">,</span> <span class="token comment"># Add y-axis label</span>
-    title <span class="token operator">=</span> <span class="token string">"Median Duration of Unemployment (in weeks) from 1970 to 2010"</span> <span class="token comment"># Add plot title</span>
+    y <span class="token operator">=</span> <span class="token string">"Median Duration of Unemployment (in weeks)"</span><span class="token punctuation">,</span>  <span class="token comment"># Add y-axis label</span>
+    title <span class="token operator">=</span> <span class="token string">"Median Duration of Unemployment (in weeks) from 1970 to 2010"</span>  <span class="token comment"># Add plot title</span>
   <span class="token punctuation">)</span> <span class="token operator">+</span>
   theme_classic<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token comment"># Use classic theme</span>
-  theme<span class="token punctuation">(</span>plot.title <span class="token operator">=</span> element_text<span class="token punctuation">(</span>hjust <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># Center the title</span>
+  theme<span class="token punctuation">(</span>plot.title <span class="token operator">=</span> element_text<span class="token punctuation">(</span>hjust <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span>  <span class="token comment"># Center the title</span>
+  coord_cartesian<span class="token punctuation">(</span>ylim <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># reset y-axis</span>
 </pre><p>Except the slight difference in width and height of the graph, which is controlled by environment (and not explicitly specified), the plot should be exactly the same as given.</p>
-<p><img src="1.a.png" alt="1500x800"></p>
+<p><img src="1.a1.png" alt="Alt text"></p>
 <h2 class="crossnote-header" id="1b">1.b</h2>
 
 <pre data-role="codeBlock" data-info="R" class="language-r R">library<span class="token punctuation">(</span>tidyverse<span class="token punctuation">)</span>
