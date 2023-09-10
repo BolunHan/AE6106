@@ -6,19 +6,20 @@
 library(tidyverse)
 
 ggplot(data = economics, mapping = aes(x = date, y = uempmed)) +
-  geom_line(color = "orange") + # Set line color to orange
+  geom_line(color = "orange") +  # Set line color to orange
   labs(
     x = "date",
-    y = "Median Duration of Unemployment (in weeks)", # Add y-axis label
-    title = "Median Duration of Unemployment (in weeks) from 1970 to 2010" # Add plot title
+    y = "Median Duration of Unemployment (in weeks)",  # Add y-axis label
+    title = "Median Duration of Unemployment (in weeks) from 1970 to 2010"  # Add plot title
   ) +
   theme_classic() + # Use classic theme
-  theme(plot.title = element_text(hjust = 0.5))  # Center the title
+  theme(plot.title = element_text(hjust = 0.5)) +  # Center the title
+  coord_cartesian(ylim = c(-1, 25))  # reset y-axis
 ```
 
 Except the slight difference in width and height of the graph, which is controlled by environment (and not explicitly specified), the plot should be exactly the same as given.
 
-![1500x800](1.a.png)
+![Alt text](1.a1.png)
 
 ## 1.b
 
