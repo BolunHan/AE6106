@@ -261,7 +261,7 @@ in the `stepAIC` process,
 
 ```R
 > obs <- NBAsalary[1, ]
-> pred <- predict(fit.all, obs, interval = "confidence")
+> pred <- pred <- predict(fit.all, obs, interval = "confidence", level = 0.90)
 ```
 
 the results are
@@ -269,10 +269,10 @@ the results are
 ```R
 > pred
        fit      lwr      upr
-1 1841.238 1666.489 2015.986
+1 1841.238 1694.743 1987.732
 ```
 
-the prediction of first observation is $1841.238$, with 95% confidence interval $[1666.489, 2015.986]$
+the prediction of first observation is $1841.238$, with **90%** confidence interval $[1694.743, 1987.732]$
 
 ## 4.h
 
