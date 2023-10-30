@@ -965,7 +965,7 @@ In this part, we will farther tweak this random forest model to its full potenti
 
 ### 0. Features of the Data
 
-<--- todo: Wang Ping, analysis and some graph  --->
+Please refer this section to our attachment.
 
 ### 1. Noise Handling
 
@@ -1019,7 +1019,7 @@ data.extended.rank.poly <- polynomial_features(data.extended.rank, 2)
 
 We extended the features using poly polynomial expansion. Higher degree of poly is not computational feasible using my laptop.
 
-### 3. Fitting
+### 3. Fitting and Results
 
 ```R
 set.seed(42)
@@ -1058,9 +1058,26 @@ As you can see, we easily boosted the model, almost double the accuracy gain.
 - Besides the correlation of the features are strong, under-fitting issue is not that big.
 - The result is so far the best.
 
-### 4. Optional: Augmentation
+## 4.c
 
-As we demonstrated above in the previous section, the random forest is severely over-fitting. A simple augmentation is implemented to address this issue.
+The Best model in 4.a only provide 71.5% accuracy (even with farther turning at 4.b, the accuracy is only 72.5%), giving a very marginal effect. This is not enough for any investment strategy / decision.
+
+Some possible solutions:
+- more complex model: this highly non-linear task requires more sophisticated model.
+- add more features / observations: which bring more information into the model.
+- sub set: divide the task into different group, 
+    - say high market_cap stock group and low market_cap group
+    - or using other criteria
+    - build model on each group to improve performance
+    - this is basically to trade generalization capacity to a better fit.
+- augmentation: a stable and consistent factor model should be resilient to some level of noise, data augmentation is advised for a better modeling (prediction) performance
+
+
+# Appendices - 0
+
+As we mentioned above in the previous section, the random forest is severely over-fitting. A simple augmentation is implemented to address this issue.
+
+This section is previously designed to boost model generalization ability, but require a little too much of computing power (than what my laptop currently has). We remove it from 4.b and placed at our appendix for your info.
 
 
 ```R
@@ -1152,23 +1169,9 @@ for (fold in folds) {
 # Calculate the mean accuracy over the 5 folds
 accuracy.rf.augmented <- mean(cv_results$accuracy)
 accuracy.rf.augmented
-# 0.71517
 ```
 
-## 4.c
-
-The Best model in 4.a only provide 71.5% accuracy, giving a very marginal effect. This is not enough for any investment strategy / decision.
-
-Some possible solution:
-- more complex model: this highly non-linear task requires more sophisticated model.
-- add more features / observations: which bring more information into the model.
-- sub set: divide the task into different group, 
-    - say high market_cap stock group and low market_cap group
-    - or using other criteria
-    - build model on each group to improve performance
-    - this is basically to trade generalization capacity to a better fit.
-
-# Appendix
+# Appendices - 1
 
 Full code block
 
